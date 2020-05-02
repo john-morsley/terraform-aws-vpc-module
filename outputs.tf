@@ -8,6 +8,9 @@
 #                      |_|                  
 
 output "vpc_id" {
-  description = "The ID of the VPC"
-  value       = aws_vpc.this.id
+  value = aws_vpc.this.id
+}
+
+output "public_subnet_id" {
+  value = aws_subnet.public.id
 }
