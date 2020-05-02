@@ -11,7 +11,7 @@ module "vpc" {
 
   source = "john-morsley/aws-vpc"
 
-  name = "vpc-"
+  name = "example"
 
   tags = {
     Terraform = "true"
