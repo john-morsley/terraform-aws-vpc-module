@@ -10,19 +10,16 @@
 variable "name" {
   description = "Name for the VPC"
   type        = string
-  default     = ""
 }
 
 variable "cidr_block" {
   description = "The CIDR block for the VPC"
   type        = string
-  default     = "0.0.0.0/0"
 }
 
 variable "public_subnets" {
   description = "A list of public subnets inside the VPC"
   type        = list(string)
-  default     = []
 }
 
 variable "tags" {
