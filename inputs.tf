@@ -23,7 +23,31 @@ variable "public_subnets" {
 }
 
 variable "tags" {
-  description = "A map of tags to add to all resources in the VPC"
+  description = "Additional tags for all resources"
+  type        = map(string)
+  default     = {}
+}
+
+variable "vpc_tags" {
+  description = "Additional tags for the VPC"
+  type        = map(string)
+  default     = {}
+}
+
+variable "internet_gateway_tags" {
+  description = "Additional tags for the Internet Gateway"
+  type        = map(string)
+  default     = {}
+}
+
+variable "public_subnet_tags" {
+  description = "Additional tags for the public Subnet"
+  type        = map(string)
+  default     = {}
+}
+
+variable "private_subnet_tags" {
+  description = "Additional tags for the private Subnet"
   type        = map(string)
   default     = {}
 }

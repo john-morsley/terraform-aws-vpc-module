@@ -17,8 +17,6 @@ resource "aws_subnet" "public" {
   cidr_block              = var.cidr_block
   map_public_ip_on_launch = true
 
-  tags = {
-    Name = "${var.name}-public-subnet"
-  }
-
+  tags = local.merged_public_subnet_tags  
+  
 }

@@ -1,4 +1,4 @@
-#      ______                           _      
+﻿#      ______                           _      
 #     |  ____|                         | |     
 #     | |__  __  ____ _ _ __ ___  _ __ | | ___ 
 #     |  __| \ \/ / _` | '_ ` _ \| '_ \| |/ _ \
@@ -12,10 +12,14 @@ module "vpc" {
   source = "./../../../terraform-aws-vpc"
   #source = "john-morsley/terraform-aws-vpc"
 
-  name = "simple-example"
+  name = "rke-example"
 
   cidr_block = "10.0.0.0/16" # 65,531 (65,536 possible - 5 reserved by AWS)
 
   public_subnets = ["10.0.0.0/24"] # 251 (256 possible - 5 reserved by AWS)
-  
+
+  tags = {
+    "${local.cluster_id}" = "owned"
+  }
+
 }
