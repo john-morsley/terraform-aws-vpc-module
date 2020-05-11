@@ -7,6 +7,12 @@
 
 locals {
 
+  merged_vpc_tags = merge(
+    { Name = "${var.name}-vpc" },
+    var.tags,
+    var.vpc_tags,
+  )
+
   merged_public_subnet_tags = merge(
     { Name = "${var.name}-public-subnet" },
     var.tags,
