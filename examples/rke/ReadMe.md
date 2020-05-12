@@ -1,6 +1,9 @@
 ﻿# An RKE cluster on AWS
 
-An RKE cluster requires the subnet that contains it to have the following tag:
+## RKE VPC
+
+For RKE to create a cluster successfully it requires the subnet has the
+following tag:
 
 ```
 "kubernetes.io/cluster/[CLUSTER NAME]": "owned"
