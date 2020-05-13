@@ -9,5 +9,5 @@
 
 output "vpc_id" {
   description = "The ID of the VPC"
-  value       = module.simple-vpc.vpc_id
+  value       = module.simple-vpc.id
 }

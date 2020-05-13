@@ -13,8 +13,11 @@
 
 resource "aws_subnet" "public" {
 
+  # ToDo --> 
+  # count = length(var.public_subnet_cidrs) == 0 ? 0 : 1
+  
   vpc_id                  = aws_vpc.this.id
-  cidr_block              = var.cidr_block
+  cidr_block              = var.public_subnet_cidrs[0] # ToDo --> index.count
   map_public_ip_on_launch = true
 
   tags = local.merged_public_subnet_tags  

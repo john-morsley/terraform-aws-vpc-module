@@ -24,5 +24,7 @@ locals {
     var.tags,
     var.private_subnet_tags
   )
+
+  internet_cidr = "10.0.0.0/0"
   
 }

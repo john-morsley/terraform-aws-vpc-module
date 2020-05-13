@@ -12,12 +12,11 @@ module "rke-vpc" {
 
   name = "rke-example"
 
-  cidr_block = "10.0.0.0/16" # 65,531 (65,536 possible - 5 reserved by AWS)
+  vpc_cidr = "10.0.0.0/16" # 65,531 (65,536 possible - 5 reserved by AWS)
 
-  public_subnets = ["10.0.0.0/24"] # 251 (256 possible - 5 reserved by AWS)
+  public_subnets = ["10.0.1.0/24"] # 251 (256 possible - 5 reserved by AWS)
+  pprivate_subnets = ["10.0.2.0/24"] # 251 (256 possible - 5 reserved by AWS)
   
-  public_subnet_tags = {
-    "${local.cluster_id}" = "owned"
-  }
+  public_subnet_tags = local.cluster_id_tag
   
 }

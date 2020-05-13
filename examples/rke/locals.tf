@@ -7,6 +7,8 @@
 
 locals {
   
-  cluster_id = "kubernetes.io/cluster/${var.cluster_name}"
+  cluster_id_tag = {
+    "kubernetes.io/cluster/${var.cluster_name}" = "owned"
+  }
   
 }

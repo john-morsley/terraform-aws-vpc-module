@@ -1,9 +1,9 @@
-﻿#      _____       _                       _   
-#     |_   _|     | |                     | |  
-#       | |  _ __ | |_ ___ _ __ _ __   ___| |_ 
-#       | | | '_ \| __/ _ \ '__| '_ \ / _ \ __|
-#      _| |_| | | | ||  __/ |  | | | |  __/ |_ 
-#     |_____|_| |_|\__\___|_|  |_| |_|\___|\__|
+﻿#      _   _              _______ 
+#     | \ | |     /\     |__   __|
+#     |  \| |    /  \       | |   
+#     | . ` |   / /\ \      | |   
+#     | |\  |  / ____ \     | |   
+#     |_| \_| /_/    \_\    |_|   
 #            _____       _                           
 #           / ____|     | |                          
 #          | |  __  __ _| |_ _____      ____ _ _   _ 
@@ -13,12 +13,11 @@
 #                                               __/ |
 #                                              |___/
 
-resource "aws_internet_gateway" "this" {
+resource "aws_nat_gateway" "this" {
 
-  vpc_id = aws_vpc.this.id
-  
-  tags = {
-    "Name" = "${var.name}-igw"
-  }
+  depends_on = [ aws_internet_gateway.this ]
+
+  allocation_id = aws_eip.nat-gateway.id
+  subnet_id = aws_subnet.public.id
 
 }
