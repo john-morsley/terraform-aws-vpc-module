@@ -12,9 +12,17 @@ output "id" {
 }
 
 output "public_subnet_id" {
-  value = aws_subnet.public.id
+  value = aws_subnet.public.*.id[0]
+}
+
+output "public_subnet_ids" {
+  value = aws_subnet.public.*.id
 }
 
 output "private_subnet_id" {
-  value = aws_subnet.private.id
+  value = aws_subnet.private.*.id[0]
+}
+
+output "private_subnet_ids" {
+  value = aws_subnet.private.*.id
 }

@@ -27,7 +27,7 @@ resource "aws_network_acl" "allow-all" {
 
   vpc_id = aws_vpc.this.id
 
-  subnet_ids = [aws_subnet.public.id]
+  subnet_ids = aws_subnet.public.*.id
 
   # Outbound...
   egress {

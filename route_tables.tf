@@ -32,7 +32,8 @@ resource "aws_route_table" "private" {
   
   route {
     cidr_block = local.internet_cidr
-    nat_gateway_id = aws_nat_gateway.this.id
+    // ToDo --> Support multiple 
+    nat_gateway_id = aws_nat_gateway.this.*.id[0]
   }
   
   tags = {
