@@ -19,7 +19,8 @@ resource "aws_subnet" "private" {
   //cidr_block              = var.private_subnet_cidrs[count.index]
   cidr_block              = var.private_subnet_cidrs[0]
   map_public_ip_on_launch = false
-
+  availability_zone = var.availability_zone
+  
   tags = local.merged_private_subnet_tags  
   
 }
