@@ -59,8 +59,7 @@ variable "private_subnet_tags" {
   default     = {}
 }
 
-# ToDo --> We must find a way to allow subnets in different availability zones
-variable "availability_zone" {
-  description = "The Availability Zone for the Subnets"
-  type        = string
+variable "availability_zones" {
+  description = "Availability Zones for the Subnets"
+  type        = list(string)
 }

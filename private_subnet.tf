@@ -13,14 +13,16 @@
 
 resource "aws_subnet" "private" {
 
-  //count = length(var.private_subnet_cidrs) == 0 ? 0 : length(var.private_subnet_cidrs)
+  count = length(var.private_subnet_cidrs) == 0 ? 0 : length(var.private_subnet_cidrs)
 
   vpc_id                  = aws_vpc.this.id
-  //cidr_block              = var.private_subnet_cidrs[count.index]
-  cidr_block              = var.private_subnet_cidrs[0]
+  cidr_block              = var.private_subnet_cidrs[count.index]
+  availability_zone       = var.availability_zones[count.index]
   map_public_ip_on_launch = false
-  availability_zone = var.availability_zone
   
-  tags = local.merged_private_subnet_tags  
-  
+  tags = merge(
+    { Name = "${var.name}-${count.index + 1}-private-subnet" },
+    local.merged_private_subnet_tags
+  )
+
 }

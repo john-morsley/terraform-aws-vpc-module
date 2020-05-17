@@ -13,6 +13,8 @@
 
 resource "aws_route_table" "public" {
 
+  count = length(var.public_subnet_cidrs) == 0 ? 0 : 1
+  
   vpc_id = aws_vpc.this.id
 
   route {
@@ -28,6 +30,8 @@ resource "aws_route_table" "public" {
 
 resource "aws_route_table" "private" {
 
+  count = length(var.private_subnet_cidrs) == 0 ? 0 : 1
+  
   vpc_id = aws_vpc.this.id
   
   route {
