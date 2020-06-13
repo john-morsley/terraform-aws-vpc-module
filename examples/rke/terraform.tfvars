@@ -7,28 +7,11 @@
 
 # VPC
 
-variable "name" {
-  type = string
-}
-
-variable "vpc_cidr" {
-  type = string
-}
-
-variable "public_subnet_cidrs" {
-  type = list(string)
-  default = []
-}
-
-variable "private_subnet_cidrs" {
-  type = list(string)
-  default = []
-}
+name = "rke-example"
+vpc_cidr = "10.0.0.0/16" # 65,531 (65,536 possible - 5 reserved by AWS)
+public_subnet_cidrs = ["10.0.1.0/24"] # 251 (256 possible - 5 reserved by AWS)
+private_subnet_cidrs = ["10.0.2.0/24"] # 251 (256 possible - 5 reserved by AWS)
 
 # Cluster
 
-variable "cluster_name" {
-  type = string
-  default = "rke-example"
-}
-
+cluster_name = "rke-example"
