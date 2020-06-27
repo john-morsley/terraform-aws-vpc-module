@@ -16,11 +16,11 @@ variable "vpc_cidr" {
 }
 
 variable "public_subnet_cidrs" {
-  type = list(string)
+  type    = list(string)
   default = []
 }
 
 variable "private_subnet_cidrs" {
-  type = list(string)
+  type    = list(string)
   default = []
 }

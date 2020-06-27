@@ -1,4 +1,4 @@
-﻿#      _   _              _______ 
+#      _   _              _______ 
 #     | \ | |     /\     |__   __|
 #     |  \| |    /  \       | |   
 #     | . ` |   / /\ \      | |   
@@ -15,11 +15,11 @@
 
 resource "aws_nat_gateway" "this" {
 
-  depends_on = [ aws_internet_gateway.this ]
+  depends_on = [aws_internet_gateway.this]
 
   count = length(var.private_subnet_cidrs) == 0 ? 0 : 1
-  
+
   allocation_id = aws_eip.nat-gateway.id
-  subnet_id = aws_subnet.public.*.id[count.index]
-  
+  subnet_id     = aws_subnet.public.*.id[count.index]
+
 }

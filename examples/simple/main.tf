@@ -17,7 +17,7 @@ module "simple-vpc" {
   vpc_cidr = var.vpc_cidr
 
   public_subnet_cidrs = var.public_subnet_cidrs
-  
+
   availability_zones = data.aws_availability_zones.available.names
-  
+
 }

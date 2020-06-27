@@ -1,4 +1,4 @@
-﻿#      _____             _       
+#      _____             _       
 #     |  __ \           | |      
 #     | |__) |___  _   _| |_ ___ 
 #     |  _  // _ \| | | | __/ _ \
@@ -20,7 +20,7 @@
 resource "aws_route_table_association" "public" {
 
   count = length(var.public_subnet_cidrs) == 0 ? 0 : length(var.public_subnet_cidrs)
-  
+
   subnet_id      = aws_subnet.public.*.id[count.index]
   route_table_id = aws_route_table.public[0].id
 
@@ -29,7 +29,7 @@ resource "aws_route_table_association" "public" {
 resource "aws_route_table_association" "private" {
 
   count = length(var.private_subnet_cidrs) == 0 ? 0 : length(var.private_subnet_cidrs)
-  
+
   subnet_id      = aws_subnet.private.*.id[count.index]
   route_table_id = aws_route_table.private[0].id
 

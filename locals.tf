@@ -1,4 +1,4 @@
-﻿#      _                     _     
+#      _                     _     
 #     | |                   | |    
 #     | |     ___   ___ __ _| |___ 
 #     | |    / _ \ / __/ _` | / __|
@@ -6,7 +6,7 @@
 #     |______\___/ \___\__,_|_|___/
 
 locals {
-  
+
   merged_vpc_tags = merge(
     { Name = "${var.name}-vpc" },
     var.tags,
@@ -23,6 +23,6 @@ locals {
     var.private_subnet_tags
   )
 
-  internet_cidr = "10.0.0.0/0"
-  
+  internet_cidr = "0.0.0.0/0"
+
 }

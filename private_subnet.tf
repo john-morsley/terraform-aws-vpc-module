@@ -1,4 +1,4 @@
-﻿#      _____      _            _       
+#      _____      _            _       
 #     |  __ \    (_)          | |      
 #     | |__) | __ ___   ____ _| |_ ___ 
 #     |  ___/ '__| \ \ / / _` | __/ _ \
@@ -19,7 +19,7 @@ resource "aws_subnet" "private" {
   cidr_block              = var.private_subnet_cidrs[count.index]
   availability_zone       = var.availability_zones[count.index]
   map_public_ip_on_launch = false
-  
+
   tags = merge(
     { Name = "${var.name}-${count.index + 1}-private-subnet" },
     local.merged_private_subnet_tags

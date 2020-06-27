@@ -1,4 +1,4 @@
-﻿#     __      __        _       _     _           
+#     __      __        _       _     _           
 #     \ \    / /       (_)     | |   | |          
 #      \ \  / /_ _ _ __ _  __ _| |__ | | ___  ___ 
 #       \ \/ / _` | '__| |/ _` | '_ \| |/ _ \/ __|
@@ -16,19 +16,18 @@ variable "vpc_cidr" {
 }
 
 variable "public_subnet_cidrs" {
-  type = list(string)
+  type    = list(string)
   default = []
 }
 
 variable "private_subnet_cidrs" {
-  type = list(string)
+  type    = list(string)
   default = []
 }
 
 # Cluster
 
 variable "cluster_name" {
-  type = string
+  type    = string
   default = "rke-example"
 }
-

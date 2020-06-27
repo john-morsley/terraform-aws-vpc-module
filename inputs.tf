@@ -1,4 +1,4 @@
-﻿#      _____                   _       
+#      _____                   _       
 #     |_   _|                 | |      
 #       | |  _ __  _ __  _   _| |_ ___ 
 #       | | | '_ \| '_ \| | | | __/ __|
@@ -32,31 +32,31 @@ variable "private_subnet_cidrs" {
 variable "tags" {
   description = "Additional tags for all resources"
   type        = map(string)
-  default     = {}
+  default     = null
 }
 
 variable "vpc_tags" {
   description = "Additional tags for the VPC"
   type        = map(string)
-  default     = {}
+  default     = null
 }
 
 variable "internet_gateway_tags" {
   description = "Additional tags for the Internet Gateway"
   type        = map(string)
-  default     = {}
+  default     = null
 }
 
 variable "public_subnet_tags" {
   description = "Additional tags for the public Subnet"
   type        = map(string)
-  default     = {}
+  default     = null
 }
 
 variable "private_subnet_tags" {
   description = "Additional tags for the private Subnet"
   type        = map(string)
-  default     = {}
+  default     = null
 }
 
 variable "availability_zones" {

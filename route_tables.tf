@@ -1,4 +1,4 @@
-﻿#      _____             _       
+#      _____             _       
 #     |  __ \           | |      
 #     | |__) |___  _   _| |_ ___ 
 #     |  _  // _ \| | | | __/ _ \
@@ -14,7 +14,7 @@
 resource "aws_route_table" "public" {
 
   count = length(var.public_subnet_cidrs) == 0 ? 0 : 1
-  
+
   vpc_id = aws_vpc.this.id
 
   route {
@@ -31,15 +31,15 @@ resource "aws_route_table" "public" {
 resource "aws_route_table" "private" {
 
   count = length(var.private_subnet_cidrs) == 0 ? 0 : 1
-  
+
   vpc_id = aws_vpc.this.id
-  
+
   route {
     cidr_block = local.internet_cidr
     // ToDo --> Support multiple 
     nat_gateway_id = aws_nat_gateway.this.*.id[0]
   }
-  
+
   tags = {
     Name = "${var.name}-private-rt"
   }
