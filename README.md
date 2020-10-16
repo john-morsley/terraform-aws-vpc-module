@@ -1,4 +1,4 @@
-﻿# Terraform a VPC in AWS
+# Terraform a VPC in AWS
 
 ## Examples
 

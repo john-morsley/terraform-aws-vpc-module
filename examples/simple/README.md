@@ -1,4 +1,4 @@
-﻿# Simple VPC
+# Simple VPC
 
 In this example we will create a simple VPC.
 

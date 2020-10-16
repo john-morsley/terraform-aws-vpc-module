@@ -1,4 +1,4 @@
-﻿# Complex VPC
+# Complex VPC
 
 In this example we will create a complex VPC.
 

@@ -1,4 +1,4 @@
-﻿# An RKE cluster on AWS
+# An RKE cluster on AWS
 
 ## RKE VPC
 
