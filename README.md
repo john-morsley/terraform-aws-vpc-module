@@ -42,6 +42,16 @@ module "vpc" {
 }
 ```
 
+## GitLab
+
+Settings --> CI/CD --> Environment va0riables
+
+GlitLab requires the following environment variables:
+
+AWS_ACCESS_KEY_ID=""
+AWS_SECRET_ACCESS_KEY=""
+AWS_DEFAULT_REGION="us-west-2"
+
 ## Terraform Registry
 
 When the code is ready, it needs deploying to the Terraform Registry.

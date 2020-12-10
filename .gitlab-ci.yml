@@ -1,0 +1,8 @@
+stages:
+- validate-simple-example
+
+Validate Simple Example
+  stage: validate-simple-example
+  image: johnmorsley/alpine-with-terraform
+  script:
+  - bash pipeline/scripts/terraform-validate.sh "examples/simple"
