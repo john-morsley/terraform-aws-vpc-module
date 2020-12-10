@@ -5,4 +5,4 @@ Validate Simple Example:
   stage: validate-simple-example
   image: johnmorsley/alpine-with-terraform
   script:
-  - bash pipeline/scripts/terraform-validate.sh "examples/simple"
+  - sh pipeline/scripts/terraform-validate.sh "examples/simple"
