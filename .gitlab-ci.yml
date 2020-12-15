@@ -6,6 +6,6 @@ stages:
 
 Validate Simple Example:
   stage: validate-simple-example
-  image: johnmorsley/alpine-with-terraform:0.14.2
+  image: johnmorsley/alpine-with-terraform
   script:
   - sh pipeline/scripts/terraform-validate.sh "examples/simple"
