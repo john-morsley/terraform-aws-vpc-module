@@ -9,7 +9,7 @@
 
 module "simple-vpc" {
 
-  source = "./../../../terraform-aws-vpc"
+  source = "./../../"
   #source = "john-morsley/vpc/aws"
 
   name = var.name

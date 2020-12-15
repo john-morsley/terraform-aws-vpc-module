@@ -8,6 +8,6 @@ cd $FOLDER
 
 ls -la
 
-terraform init
+#terraform init
 
 terraform validate
