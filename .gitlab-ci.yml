@@ -30,7 +30,7 @@ Plan Simple Example:
   #image: johnmorsley/alpine-with-terraform:0.14.2
   before_script:
   - sh pipeline/scripts/terraform-init.sh "examples/simple"
-  #script:
+  script:
   - sh pipeline/scripts/terraform-plan.sh "examples/simple"
 
 Apply Simple Example:
