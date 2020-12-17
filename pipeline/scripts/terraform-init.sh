@@ -8,4 +8,4 @@ cd $FOLDER
 
 ls -la
 
-terraform validate
+terraform init
