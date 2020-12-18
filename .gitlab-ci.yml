@@ -19,9 +19,12 @@ Validate Simple Example:
   <<: *template
   stage: validate
   before_script:
-  - ls -la
-  - cd "examples/simple"
-  - ls -la
+  - echo $CI_PROJECT_PATH
+#  - ls -la  
+  - echo $CI_PROJECT_DIRECTORY  
+#  - ls -la
+#  - cd "examples/simple"
+
   script:
   - echo "Hello! :)"
 #  - sh pipeline/scripts/terraform-validate.sh
