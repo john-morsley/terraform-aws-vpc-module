@@ -4,9 +4,6 @@ stages:
 - apply-simple-example
 - destroy-simple-example
 
-#only:
-#- master
-
 image: johnmorsley/alpine-with-terraform:0.14.2
 
 before_script:
@@ -17,34 +14,32 @@ before_script:
 #after_script:
 #- whatever.sh
 
-Validate Simple Example:
-  stage: validate-simple-example
-  #image: johnmorsley/alpine-with-terraform:0.14.2
+.template: &template
+  only:
+  - master
   before_script:
   - sh pipeline/scripts/terraform-init.sh "examples/simple"
+
+Validate Simple Example:
+  <<: *template
+  stage: validate-simple-example
   script:
   - sh pipeline/scripts/terraform-validate.sh "examples/simple"
 
 Plan Simple Example:
+  <<: *template
   stage: plan-simple-example
-  #image: johnmorsley/alpine-with-terraform:0.14.2
-  before_script:
-  - sh pipeline/scripts/terraform-init.sh "examples/simple"
   script:
   - sh pipeline/scripts/terraform-plan.sh "examples/simple"
 
 Apply Simple Example:
+  <<: *template
   stage: apply-simple-example
-  #image: johnmorsley/alpine-with-terraform:0.14.2
-  before_script:
-  - sh pipeline/scripts/terraform-init.sh "examples/simple"
   script:
   - sh pipeline/scripts/terraform-apply.sh "examples/simple"
 
 Destroy Simple Example:
+  <<: *template
   stage: destroy-simple-example
-  #image: johnmorsley/alpine-with-terraform:0.14.2
-  before_script:
-  - sh pipeline/scripts/terraform-init.sh "examples/simple"
   script:  
   - sh pipeline/scripts/terraform-destroy.sh "examples/simple"  
