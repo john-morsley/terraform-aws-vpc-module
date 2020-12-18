@@ -19,30 +19,32 @@ Validate Simple Example:
   <<: *template
   stage: validate
   before_script:
+  - ls -la
   - cd "examples/simple"
-  script:
-  - sh pipeline/scripts/terraform-validate.sh
+  - ls -la
+#   script:
+#   - sh pipeline/scripts/terraform-validate.sh
 
-Plan Simple Example:
-  <<: *template
-  stage: plan
-  before_script:
-  - cd "examples/simple"
-  script:
-  - sh pipeline/scripts/terraform-plan.sh
+# Plan Simple Example:
+#   <<: *template
+#   stage: plan
+#   before_script:
+#   - cd "examples/simple"
+#   script:
+#   - sh pipeline/scripts/terraform-plan.sh
 
-Apply Simple Example:
-  <<: *template
-  stage: apply
-  before_script:
-  - cd "examples/simple"
-  script:
-  - sh pipeline/scripts/terraform-apply.sh
+# Apply Simple Example:
+#   <<: *template
+#   stage: apply
+#   before_script:
+#   - cd "examples/simple"
+#   script:
+#   - sh pipeline/scripts/terraform-apply.sh
 
-Destroy Simple Example:
-  <<: *template
-  stage: destroy
-  before_script:
-  - cd "examples/simple"
-  script:  
-  - sh pipeline/scripts/terraform-destroy.sh
+# Destroy Simple Example:
+#   <<: *template
+#   stage: destroy
+#   before_script:
+#   - cd "examples/simple"
+#   script:  
+#   - sh pipeline/scripts/terraform-destroy.sh
