@@ -1,8 +1,8 @@
 stages:
-- validate-simple-example
-- plan-simple-example
-- apply-simple-example
-- destroy-simple-example
+- validate
+- plan
+- apply
+- destroy
 
 image: johnmorsley/alpine-with-terraform:0.14.2
 
@@ -11,35 +11,38 @@ before_script:
 - export AWS_ACCESS_KEY=$AWS_ACCESS_KEY
 - export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
 
-#after_script:
-#- whatever.sh
-
 .template: &template
   only:
   - master
-  before_script:
-  - sh pipeline/scripts/terraform-init.sh "examples/simple"
 
 Validate Simple Example:
   <<: *template
-  stage: validate-simple-example
+  stage: validate
+  before_script:
+  - cd "examples/simple"
   script:
-  - sh pipeline/scripts/terraform-validate.sh "examples/simple"
+  - sh pipeline/scripts/terraform-validate.sh
 
 Plan Simple Example:
   <<: *template
-  stage: plan-simple-example
+  stage: plan
+  before_script:
+  - cd "examples/simple"
   script:
-  - sh pipeline/scripts/terraform-plan.sh "examples/simple"
+  - sh pipeline/scripts/terraform-plan.sh
 
 Apply Simple Example:
   <<: *template
-  stage: apply-simple-example
+  stage: apply
+  before_script:
+  - cd "examples/simple"
   script:
-  - sh pipeline/scripts/terraform-apply.sh "examples/simple"
+  - sh pipeline/scripts/terraform-apply.sh
 
 Destroy Simple Example:
   <<: *template
-  stage: destroy-simple-example
+  stage: destroy
+  before_script:
+  - cd "examples/simple"
   script:  
-  - sh pipeline/scripts/terraform-destroy.sh "examples/simple"  
+  - sh pipeline/scripts/terraform-destroy.sh
