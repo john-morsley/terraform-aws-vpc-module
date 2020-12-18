@@ -22,8 +22,9 @@ Validate Simple Example:
   - ls -la
   - cd "examples/simple"
   - ls -la
-#   script:
-#   - sh pipeline/scripts/terraform-validate.sh
+  script:
+  - echo "Hello! :)"
+#  - sh pipeline/scripts/terraform-validate.sh
 
 # Plan Simple Example:
 #   <<: *template
