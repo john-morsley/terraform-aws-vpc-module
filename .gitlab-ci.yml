@@ -19,9 +19,9 @@ Validate Simple Example:
   <<: *template
   stage: validate
   before_script:
-  - echo $CI_PROJECT_PATH
-#  - ls -la  
-  - echo $CI_PROJECT_DIRECTORY  
+  - cd $CI_PROJECT_PATH
+  - ls -la  
+#  - echo $CI_PROJECT_DIRECTORY  
 #  - ls -la
 #  - cd "examples/simple"
 
