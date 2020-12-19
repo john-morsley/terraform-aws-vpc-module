@@ -16,18 +16,18 @@ terraform {
 
   required_version = ">= 0.14"
 
-# Terraform Cloud requires the following environment variables:
+  # AWS requires the following environment variables:
 
   # AWS_DEFAULT_REGION
   # AWS_ACCESS_KEY_ID
   # AWS_SECRET_ACCESS_KEY
 
-  backend "remote" {
-    hostname     = "app.terraform.io"
-    organization = "john-morsley"
-    workspaces {
-      name = "terraform-aws-vpc-module-example-rke"
-    }
-  }
+  backend "s3" {
+     bucket         = "morsley-io-terraform-backend-states"
+     key            = "terraform-modules/examples/aws-vpc-module/rke"
+     region         = "eu-west-2"
+     dynamodb_table = "morsley-io-terraform-state-locks"
+     encrypt        = true
+   }
 
 }

@@ -11,26 +11,39 @@ before_script:
 - export AWS_ACCESS_KEY=$AWS_ACCESS_KEY
 - export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
 
-
 .template: &template
   only:
   - master
 
-Validate Simple Example:
+.validate_template: &validate_template
   <<: *template
   stage: validate
-  before_script:
-  - cd examples/simple
   script:
   - sh $CI_PROJECT_DIR/pipeline/scripts/terraform-validate.sh
 
+Validate Simple Example:
+  <<: *validate_template
+  #stage: validate
+  before_script:
+  - cd examples/simple
+  # script:
+  # - sh $CI_PROJECT_DIR/pipeline/scripts/terraform-validate.sh
+
 Validate Complex Example:
-  <<: *template
-  stage: validate
+  <<: *validate_template
+  #stage: validate
   before_script:
   - cd examples/complex
-  script:
-  - sh $CI_PROJECT_DIR/pipeline/scripts/terraform-validate.sh
+  # script:
+  # - sh $CI_PROJECT_DIR/pipeline/scripts/terraform-validate.sh
+
+Validate RKE Example:
+  <<: *validate_template
+  #stage: validate
+  before_script:
+  - cd examples/rke
+  # script:
+  # - sh $CI_PROJECT_DIR/pipeline/scripts/terraform-validate.sh
 
   # Plan Simple Example:
 #   <<: *template
