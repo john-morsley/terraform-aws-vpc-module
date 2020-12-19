@@ -15,8 +15,6 @@ before_script:
 .template: &template
   only:
   - master
-#  before_script:
-#  - CWD=$(pwd)
 
 Validate Simple Example:
   <<: *template
@@ -24,8 +22,7 @@ Validate Simple Example:
   before_script:
   - cd examples/simple
   script:
-  - echo $CI_PROJECT_DIR
-  #- sh $CWD/pipeline/scripts/terraform-validate.sh
+  - sh $CI_PROJECT_DIR/pipeline/scripts/terraform-validate.sh
 
 # Plan Simple Example:
 #   <<: *template
