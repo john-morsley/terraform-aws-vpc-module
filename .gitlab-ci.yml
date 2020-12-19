@@ -24,7 +24,15 @@ Validate Simple Example:
   script:
   - sh $CI_PROJECT_DIR/pipeline/scripts/terraform-validate.sh
 
-# Plan Simple Example:
+Validate Complex Example:
+  <<: *template
+  stage: validate
+  before_script:
+  - cd examples/complex
+  script:
+  - sh $CI_PROJECT_DIR/pipeline/scripts/terraform-validate.sh
+
+  # Plan Simple Example:
 #   <<: *template
 #   stage: plan
 #   before_script:
