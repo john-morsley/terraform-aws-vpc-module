@@ -11,28 +11,21 @@ before_script:
 - export AWS_ACCESS_KEY=$AWS_ACCESS_KEY
 - export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
 
+
 .template: &template
   only:
   - master
+  before_script:
+  - CWD=$(pwd)
 
 Validate Simple Example:
   <<: *template
   stage: validate
   before_script:
-  - CWD=$(pwd)
-  - echo $PWD
-  - ls -la  
   - cd examples/simple
-  - ls -la  
-  - cd $CWD
-  - ls -la  
-#  - echo $CI_PROJECT_DIRECTORY  
-#  - ls -la
-#  - cd "examples/simple"
-
   script:
-  - echo "Hello! :)"
-#  - sh pipeline/scripts/terraform-validate.sh
+  - echo $CWD 
+  #- sh $CWD/pipeline/scripts/terraform-validate.sh
 
 # Plan Simple Example:
 #   <<: *template
