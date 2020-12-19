@@ -21,29 +21,41 @@ before_script:
   script:
   - sh $CI_PROJECT_DIR/pipeline/scripts/terraform-validate.sh
 
-Validate Simple Example:
+.plan_template: &plan_template
+  <<: *template
+  stage: plan
+  script:
+  - sh $CI_PROJECT_DIR/pipeline/scripts/terraform-plan.sh
+
+Simple Example:
   <<: *validate_template
-  #stage: validate
   before_script:
   - cd examples/simple
-  # script:
-  # - sh $CI_PROJECT_DIR/pipeline/scripts/terraform-validate.sh
 
-Validate Complex Example:
+Complex Example:
   <<: *validate_template
-  #stage: validate
   before_script:
   - cd examples/complex
-  # script:
-  # - sh $CI_PROJECT_DIR/pipeline/scripts/terraform-validate.sh
 
-Validate RKE Example:
+RKE Example:
   <<: *validate_template
-  #stage: validate
   before_script:
   - cd examples/rke
-  # script:
-  # - sh $CI_PROJECT_DIR/pipeline/scripts/terraform-validate.sh
+
+Simple Example:
+  <<: *plan_template
+  before_script:
+  - cd examples/simple
+
+Complex Example:
+  <<: *plan_template
+  before_script:
+  - cd examples/complex
+
+RKE Example:
+  <<: *plan_template
+  before_script:
+  - cd examples/rke
 
   # Plan Simple Example:
 #   <<: *template
