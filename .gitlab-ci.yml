@@ -27,35 +27,39 @@ before_script:
   script:
   - sh $CI_PROJECT_DIR/pipeline/scripts/terraform-plan.sh
 
-Validate Simple Example:
+validate_simple:
   <<: *validate_template
   before_script:
   - cd examples/simple
 
-Validate Complex Example:
+validate_complex:
   <<: *validate_template
   before_script:
   - cd examples/complex
 
-Validate RKE Example:
-  <<: *validate_template
-  before_script:
-  - cd examples/rke
+# Validate RKE Example:
+#   <<: *validate_template
+#   before_script:
+#   - cd examples/rke
 
-Plan Simple Example:
+plan_simple:
   <<: *plan_template
   before_script:
   - cd examples/simple
+  needs:
+  - validate_simple
 
-Plan Complex Example:
+plan_complex:
   <<: *plan_template
   before_script:
   - cd examples/complex
+  needs:
+  - validate_complex
 
-Plan RKE Example:
-  <<: *plan_template
-  before_script:
-  - cd examples/rke
+# Plan RKE Example:
+#   <<: *plan_template
+#   before_script:
+#   - cd examples/rke
 
   # Plan Simple Example:
 #   <<: *template
@@ -78,5 +82,5 @@ Plan RKE Example:
 #   stage: destroy
 #   before_script:
 #   - cd "examples/simple"
-#   script:  
+#   script:
 #   - sh pipeline/scripts/terraform-destroy.sh
