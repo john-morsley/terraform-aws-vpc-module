@@ -16,7 +16,7 @@ terraform {
 
   required_version = ">= 0.14"
 
-  # Terraform Cloud requires the following environment variables:
+  # AWS requires the following environment variables:
 
   # AWS_DEFAULT_REGION
   # AWS_ACCESS_KEY_ID
@@ -24,7 +24,7 @@ terraform {
 
    backend "s3" {
      bucket         = "morsley-io-terraform-backend-states"
-     key            = "terraform-modules/examples/aws-vpc-module/simple"
+     key            = "terraform-modules/examples/aws-vpc-module/complex"
      region         = "eu-west-2"
      dynamodb_table = "morsley-io-terraform-state-locks"
      encrypt        = true
