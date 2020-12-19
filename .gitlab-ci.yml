@@ -19,9 +19,12 @@ Validate Simple Example:
   <<: *template
   stage: validate
   before_script:
-  - pwd
+  - CWD=$(pwd)
+  - echo $PWD
   - ls -la  
-  - cd $CI_PROJECT_DIR
+  - cd examples/simple
+  - ls -la  
+  - cd $CWD
   - ls -la  
 #  - echo $CI_PROJECT_DIRECTORY  
 #  - ls -la
