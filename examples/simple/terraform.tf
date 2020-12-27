@@ -7,14 +7,14 @@
 
 terraform {
 
+  required_version = ">= 0.14"
+  
   required_providers {
     aws = {
       source = "hashicorp/aws"
       version = "~> 3.0"
     }
   }
-
-  required_version = ">= 0.14"
 
   # AWS requires the following environment variables:
 
@@ -24,7 +24,7 @@ terraform {
 
    backend "s3" {
      bucket         = "morsley-io-terraform-backend-states"
-     key            = "terraform-modules/examples/aws-vpc-module/complex"
+     key            = "terraform-modules/examples/aws-vpc-module/simple"
      region         = "eu-west-2"
      dynamodb_table = "morsley-io-terraform-state-locks"
      encrypt        = true
