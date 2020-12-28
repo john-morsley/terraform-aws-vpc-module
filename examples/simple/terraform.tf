@@ -10,6 +10,7 @@ terraform {
   required_version = ">= 0.14"
   
   required_providers {
+    # https://registry.terraform.io/providers/hashicorp/aws/latest
     aws = {
       source = "hashicorp/aws"
       version = "~> 3.0"

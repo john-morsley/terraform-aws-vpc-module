@@ -7,6 +7,8 @@
 
 terraform {
 
+  required_version = ">= 0.14"
+  
   required_providers {
     # https://registry.terraform.io/providers/hashicorp/aws/latest
     aws = {
@@ -14,7 +16,5 @@ terraform {
       version = "~> 3.0"
     }
   }
-
-  required_version = ">= 0.14"
 
 }
